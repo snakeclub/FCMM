@@ -1,0 +1,33 @@
+{
+  "name": "FCMM",
+  "version": "1.0.0",
+  "description": "Flow-based Configuration Management Model",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snakeclub/FCMM.git"
+  },
+  "keywords": [
+    "fcmm",
+    "fcmm4git",
+    "configuration",
+    "git",
+    "github",
+    "gitlab",
+    "commitizen",
+    "standard-version"
+  ],
+  "author": "Huijian Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snakeclub/FCMM/issues"
+  },
+  "homepage": "https://github.com/snakeclub/FCMM#readme",
+  "config": {
+    "commitizen": {
+      "path": "C:/Users/hi.li/AppData/Roaming/nvm/npm/node_modules/cz-conventional-changelog"
+    }
+  }
+}
