@@ -27,7 +27,7 @@
   "homepage": "https://github.com/snakeclub/FCMM#readme",
   "config": {
     "commitizen": {
-      "path": "C:/Users/hi.li/AppData/Roaming/nvm/npm/node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   }
 }

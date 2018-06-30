@@ -115,7 +115,7 @@
 
 每次代码提交必须填写提交说明，以保证过程信息能完整、准确地体现代码变更过程，同时通过规范提交说明内容，也可在最终版本打包时能自动生成变更说明内容。FCMM要求的提交说明规范遵循[*Angular*JS项目Git提交日志规范](https://github.com/angular/angular.js/blob/f3377da6a748007c11fde090890ee58fae4cefa5/CONTRIBUTING.md#commit_)。对于使用GIT进行配置管理的情况，可以使用典型的git工作流程或通过使用CLI向导Commitizen来添加提交说明消息格式，让使用人员参考并生成符合AngularJS规范的提交说明 。
 
-可参考以下文档在Windows上安装使用Commitizen：[《Commitizen在Windows的安装使用手册》](/docs/commitizen-windows.md)。
+可参考以下文档在Windows上安装使用Commitizen：[《Commitizen在Windows的安装使用手册》](https://github.com/snakeclub/DevStandards/blob/master/docs/git/commitizen-windows.md)。
 
 以下对AngularJS提交日志规范进行说明：
 
