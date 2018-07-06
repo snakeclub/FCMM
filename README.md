@@ -15,27 +15,28 @@
 
 该模型可以在各类配置管理工具上落地实现，但主要概念是参考Git的配置管理观念，同时本项目也提供了一个简单的python工具fcmm4git来简化开发人员在自己电脑上按照FCMM配置和管理项目的工作效率。
 
-
+**注：git是分布式的配置管理，每一个仓库（不管本地还是服务端）都可以是主版本，但FCMM的原则是以服务器端版本作为主库管理，版本应以服务器为准，这点需在使用时注意。**
 
 ## 1. 标准词汇参考
 
-| **词汇**                                                     | **缩写** | **说明**                                           |
-| ------------------------------------------------------------ | -------- | -------------------------------------------------- |
-| long-branch                                                  | lb       | 长期版本分支，该分支建立后会一直持续更新，不会删除 |
-| temp-branch                                                  | tb       | 临时分支，针对临时任务建立，任务最终完成后即可删除 |
-| package                                                      | pkg      | 打包，主要指程序定版                               |
-| configure                                                    | cfg      | 参数配置                                           |
-| develop                                                      | dev      | 开发                                               |
-| sit                                                          | sit      | SIT测试                                            |
-| uat                                                          | uat      | UAT测试                                            |
-| quasi-production                                             | qprd     | Quasi production environment，准生产环境           |
-| test                                                         | test     | 测试                                               |
-| production                                                   | prd      | 生产，例如production environment：生产环境         |
-| requirement                                                  | req      | 需求                                               |
-| hotfix                                                       | fix      | 补丁                                               |
-| feature                                                      | feat     | 特性                                               |
-| version                                                      | ver      | 版本                                               |
-| publish                                                      | pub      | 发布                                               |
+| **词汇**         | **缩写** | **说明**                                           |
+| ---------------- | -------- | -------------------------------------------------- |
+| long-branch      | lb       | 长期版本分支，该分支建立后会一直持续更新，不会删除 |
+| temp-branch      | tb       | 临时分支，针对临时任务建立，任务最终完成后即可删除 |
+| package          | pkg      | 打包，主要指程序定版                               |
+| configure        | cfg      | 参数配置                                           |
+| develop          | dev      | 开发                                               |
+| sit              | sit      | SIT测试                                            |
+| uat              | uat      | UAT测试                                            |
+| quasi-production | qprd     | Quasi production environment，准生产环境           |
+| test             | test     | 测试                                               |
+| production       | prd      | 生产，例如production environment：生产环境         |
+| requirement      | req      | 需求                                               |
+| hotfix           | fix      | 补丁                                               |
+| feature          | feat     | 特性                                               |
+| version          | ver      | 版本                                               |
+| publish          | pub      | 发布                                               |
+| backup           | bak      | 备份                                               |
 
 
 
@@ -63,7 +64,8 @@
 - 配置分支：规范为lb-cfg-环境标识（long branch configure），例如lb-cfg-sit（SIT测试）、lb-cfg-uat（UAT测试）、lb-cfg-prd（生产）、lb-cfg-dev（开发）；
 - 开发分支：分为多类，tb-req-需求标识（例如需求编号）、tb-fix-缺陷标识（例如故障编号）、tb-feat-特性标识
 - 测试分支：tb-test-环境标识，例如tb-test-sit、tb-test-uat
-- 发布分支：tb-pub-环境标识，例如tb_pub-sit、tb-test-uat
+- 发布分支：tb-pub-环境标识，例如tb-pub-sit、tb-pub-uat
+- 备份分支：tb-bak-备份版本标识，版本标识只要能让人区分清除就好，例如tb-bak-**20180706-by-lhj**
 - 开发者临时分支：tb-dev-开发者标识，该分支用于开发者上传临时代码服务器中自己的临时分支（例如临时切换其他开发任务，或者用于多台电脑的开发代码传输）
 
 ### （2）版本号Tag规范
@@ -106,7 +108,9 @@
 （1）单人开发（最精简场景）：单人开发的情况一般没有并行代码提交的问题，可以只保留master和开发分支，直接在开发分支上进行测试，测试通过的代码直接从开发分支同步到master；
 
 （2）无待投产的场景：如果开发模式不存在定版待投产的状态，可以取消版本分支（lb-pkg），直接使用master作为版本分支进行处理；
+
 （3）无发布分支的场景：建议与环境相关的信息开发为外部可替换的配置文件方式，不要写入代码中，这样可以编译程序可以直接分别获取测试分支（tb-test-）或版本分支（lb-pkg）的代码部分直接编译，然后再获取配置分支（lb-cfg-）的配置文件替换到服务器部署上，无需增加发布分支（tb-pub-）；
+
 （4）按需设置测试分支：测试分支数量可按实际需要设置，不一定要区分sit、uat等多个环境。
 
 
@@ -332,7 +336,7 @@ README.md文件用于说明项目内容，包括介绍、使用手册等信息�
 
 ### CHANGELOG.md
 
-非必须，CHANGELOG.md文件用于说明每个版本的修改内容。建议通过conventional-changelog自动生成，相关按照及使用手册参考[《Commitizen在Windows的安装使用手册》](/docs/commitizen-windows.md)。
+非必须，CHANGELOG.md文件用于说明每个版本的修改内容。建议通过conventional-changelog自动生成，相关按照及使用手册参考[《Commitizen在Windows的安装使用手册》](https://github.com/snakeclub/DevStandards/blob/master/docs/git/commitizen-windows.md)。
 
 
 
