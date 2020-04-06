@@ -82,24 +82,24 @@
 
 ### 4.1. 主流程说明
 
-​	（1）当收到各类改造需求时，从lb-pkg（定版分支）中获取指定版本的代码，通过checkout创建对应的开发分支；
-​	（2）各开发分支开发完成，根据版本计划，基于lb-pkg（版本分支）的指定版本创建tb-test-sit（SIT测试分支），并将各开发分支内容合并（merge）进来；
-​	（3）通过tb-pub-sit（SIT发布分支）将SIT的版本和环境信息合并起来，供一并编译并部署到SIT服务器上进行测试；
-	（4）基于lb-pkg（版本分支）的指定版本创建tb-test-uat（UAT测试分支），对于通过SIT的版本，从tb-test-sit发布到tb-test-uat（UAT测试分支）； 
-​	（5）通过tb-pub-uat（UAT发布分支）将UAT的版本和环境信息合并起来，供一并编译并部署到UAT服务器上进行测试；
-	（6）通过UAT测试的版本，可以从tb-test-uat合并到lb-pkg（定版分支），标注版本号为上线日期，等待最终上线；
-​	（7）通过tb-pub-prd（生产发布分支）将定版的版本和环境信息合并起来，供一并编译并部署到生产环境（上线）；
-​	（8）对于已上线的代码，从lb-pkg（定版分支）合并到master版本，完成生产版本的同步更新。
+1. 当收到各类改造需求时，从lb-pkg（定版分支）中获取指定版本的代码，通过checkout创建对应的开发分支；
+2. 各开发分支开发完成，根据版本计划，基于lb-pkg（版本分支）的指定版本创建tb-test-sit（SIT测试分支），并将各开发分支内容合并（merge）进来；
+3. 通过tb-pub-sit（SIT发布分支）将SIT的版本和环境信息合并起来，供一并编译并部署到SIT服务器上进行测试；
+4. 基于lb-pkg（版本分支）的指定版本创建tb-test-uat（UAT测试分支），对于通过SIT的版本，从tb-test-sit发布到tb-test-uat（UAT测试分支）； 
+5. 通过tb-pub-uat（UAT发布分支）将UAT的版本和环境信息合并起来，供一并编译并部署到UAT服务器上进行测试；
+6. 通过UAT测试的版本，可以从tb-test-uat合并到lb-pkg（定版分支），标注版本号为上线日期，等待最终上线；
+7. 通过tb-pub-prd（生产发布分支）将定版的版本和环境信息合并起来，供一并编译并部署到生产环境（上线）；
+8. 对于已上线的代码，从lb-pkg（定版分支）合并到master版本，完成生产版本的同步更新。
 
 ### 4.2. 流程基本原则
 
 ​	流程最基本的原则是要保证所设立分支的最长提交流程，不允许跨流程节点跳跃提交的做法，基于该原则，大致有以下的流程要求：
 
-​	（1）存在测试分支的情况下（tb-test-），开发分支（tb-req-、tb-feat-、tb-fix-）只允许合并到测试分支，不允许合并到版本分支（lb-pkg）和主版本（master）；
-	（2）测试分支（tb-test-）应按实际的测试环节进行合并，非第一个节点的测试分支不允许从开发分支合并版本（tb-req-、tb-feat-、tb-fix-）；
-	（3）版本分支（lb-pkg）只能从最后一个测试分支（tb-test-）合并版本；
-	（4）主版本（master）只能从版本分支（lb-pkg）合并版本；
-	（5）与环境相关的代码不允许放到非配置分支（lb-cfg-）上。
+1. 存在测试分支的情况下（tb-test-），开发分支（tb-req-、tb-feat-、tb-fix-）只允许合并到测试分支，不允许合并到版本分支（lb-pkg）和主版本（master）；
+2. 测试分支（tb-test-）应按实际的测试环节进行合并，非第一个节点的测试分支不允许从开发分支合并版本（tb-req-、tb-feat-、tb-fix-）；
+3. 版本分支（lb-pkg）只能从最后一个测试分支（tb-test-）合并版本；
+4. 主版本（master）只能从版本分支（lb-pkg）合并版本；
+5. 与环境相关的代码不允许放到非配置分支（lb-cfg-）上。
 
 ### 4.3. 流程裁剪
 
@@ -261,7 +261,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ```
 
 ​	**Body** 部分的格式是固定的，必须写成 **This reverts commit &lt;hash>**.，其中的hash是被撤销 commit 的 SHA 标识符。
-	如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
+​	如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的Reverts小标题下面。
 
 
 
@@ -357,12 +357,6 @@ README.md文件用于说明项目内容，包括介绍、使用手册等信息�
 **data** : 装载数据路径
 
 **docs** : 文档路径
-
-
-
-## 7. fcmm4git
-
-**fcmm4git**（FCMM for Git）是基于FCMM模型，针对git简化进行代码托管的命令行小工具，大家可在Github的[fcmm4git开源项目](https://github.com/snakeclub/fcmm4git/blob/master/README.md)中了解并获取最新版本。
 
 
 
