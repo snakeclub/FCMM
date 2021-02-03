@@ -42,7 +42,7 @@
 
 ## 2.  配置管理分支模型
 
-![](/docs/media/README-pic001.png)
+![](docs/media/README-pic001.png)
 
 **模型中的各类配置管理分支的定义如下：**
 
@@ -78,7 +78,7 @@
 
 ## 4. 标准处理流程
 
-![](/docs/media/README-pic002.png)
+![](docs/media/README-pic002.png)
 
 ### 4.1. 主流程说明
 
